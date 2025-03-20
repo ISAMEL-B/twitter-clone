@@ -10,7 +10,7 @@ class twitterController extends Controller
 {
     public function media(){
         // taken the code that was saving manually ha
-        
+
         return view('twitter',[
                 'twit' =>twit::orderBy('created_at','DESC')->paginate(2)
         ]);

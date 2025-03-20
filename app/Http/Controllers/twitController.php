@@ -38,8 +38,13 @@ class twitController extends Controller
     }
 
     public function show(twit $id){
-        return view('show_twit.twit',[
+
+        return view('show_twit.test',[
             'twit' => $id
         ]);
     }
-}
+
+    // using compact menthod
+//         return view('show_twit.twit', compact('twit'));
+//         }
+ }

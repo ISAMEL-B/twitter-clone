@@ -1,3 +1,6 @@
+@extends('layout.layout')
+
+@section('content')
 {{-- All of this card is the one showing under the textarea where to share a twit from [repeated because of a foreach loop in its boday fetching messages fron db] --}}
 <div class="card">
     <div class="px-3 pt-4 pb-2">
@@ -11,11 +14,11 @@
                 </div>
             </div>
             <div>
-                <form action="{{ route('twit.destroy',$twits->id) }}" method="post">
+                <form action="{{ route('twit.destroy',$twit->id) }}" method="post">
                     @csrf
                     @method('delete')
-                    <a class="mx-2" href="{{ route('twit.edit', $twits->id) }}">Edit</a>
-                    <a href="{{ route('twit.show', $twits->id) }}">Viw</a>
+                    <a class="mx-2" href="{{ route('twit.edit', $twit->id) }}">Edit</a>
+
                     {{-- first die damp the twit --}}
                     {{-- {{dd($twits->id)}} --}}
                     <button class="ms-1 btn btn-danger btn-sm">X</button>
@@ -27,18 +30,18 @@
     <div class="card-body">
         <p class="fs-6 fw-light text-muted">
             {{-- displaying the twits on the UI page --}}
-            {{ $twits->content }}
+            {{ $twit->content }}
         </p>
         <div class="d-flex justify-content-between">
             <div>
                 <a href="#" class="fw-light nav-link fs-6"> <span class="fas fa-heart me-1">
                                             {{-- displaying the twits on the UI page --}}
-                    </span> {{ $twits->likes }} </a>
+                    </span> {{ $twit->likes }} </a>
             </div>
             <div>
                 <span class="fs-6 fw-light text-muted"> <span class="fas fa-clock"> </span>
             {{-- displaying the date of a twit on the UI page --}}
-                {{ $twits->created_at }} </span>
+                {{ $twit->created_at }} </span>
             </div>
         </div>
         <div>
@@ -77,3 +80,4 @@
         </div>
     </div>
 </div>
+@endsection

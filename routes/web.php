@@ -32,3 +32,6 @@ Route::delete('/twitter/{id}', [twitController::class , 'destroy'] )->name('twit
 
 //Show one full twit route targeting a specific id
 Route::get('/twitter/{id}', [twitController::class , 'show'] )->name('twit.show');
+
+//Edit one full twit route targeting a specific id
+Route::get('/twitter/{id}/edit', [twitController::class , 'edit'] )->name('twit.edit');
